@@ -121,7 +121,7 @@
 
     text-transform:uppercase;
 
-    color:#D4AF37;
+    color:#f81a2e;
 
     opacity:.95;
 }
@@ -173,7 +173,7 @@
 
     background:#242424;
 
-    border-color:#D4AF37;
+    border-color:#f81a2e;
 
     transform:translateY(-2px);
 }
@@ -187,7 +187,7 @@
 
     font-size:17px;
 
-    color:#D4AF37;
+    color:#f81a2e;
 }
 
 
@@ -224,7 +224,7 @@
 
     background:#242424;
 
-    border-color:#D4AF37;
+    border-color:#f81a2e;
 
     transform:translateY(-2px);
 }
@@ -255,8 +255,8 @@
     background:
         linear-gradient(
             180deg,
-            #F3D46A 0%,
-            #D4AF37 100%
+            #ff4d5e 0%,
+            #f81a2e 100%
         );
 
     color:#111111;
@@ -418,7 +418,7 @@
 
     border-radius:999px;
 
-    background:#D4AF37;
+    background:#f81a2e;
 
     color:#111;
 
@@ -515,7 +515,7 @@
 
     width:22px;
 
-    background:#D4AF37;
+    background:#f81a2e;
 }
 
 
@@ -561,7 +561,7 @@
 
     border-radius:12px;
 
-    background:#D4AF37;
+    background:#f81a2e;
 
     color:#111;
 
@@ -617,7 +617,7 @@
 
     border-radius:12px;
 
-    background:#D4AF37;
+    background:#f81a2e;
 
     color:#111;
 
@@ -784,7 +784,7 @@
 
     border-radius:14px;
 
-    background:#D4AF37;
+    background:#f81a2e;
 
     color:#111;
 
@@ -797,7 +797,7 @@
 
     margin:0;
 
-    color:#D4AF37;
+    color:#f81a2e;
 
     font-size:11px;
 
@@ -950,7 +950,7 @@
 
     border-radius:999px;
 
-    background:#D4AF37;
+    background:#f81a2e;
 
     color:#111;
 
@@ -971,7 +971,7 @@
 
     margin-top:12px;
 
-    color:#D4AF37;
+    color:#f81a2e;
 
     font-size:13px;
 
@@ -1014,8 +1014,8 @@
     background:
         linear-gradient(
             180deg,
-            #F3D46A,
-            #D4AF37
+            #ff4d5e,
+            #f81a2e
         );
 
     color:#111;
@@ -1125,7 +1125,7 @@
 
     transition:all .25s ease;
 
-    color:#D4AF37;
+    color:#f81a2e;
 }
 
 .category-svg {
@@ -1152,16 +1152,16 @@
 
     background:rgba(212, 175, 55, 0.06);
 
-    border-color:#D4AF37;
+    border-color:#f81a2e;
 
     box-shadow:0 0 12px rgba(212, 175, 55, 0.3);
 
-    color:#D4AF37;
+    color:#f81a2e;
 }
 
 .club-category-tab.active .club-category-label{
 
-    color:#D4AF37;
+    color:#f81a2e;
 
     font-weight:700;
 }
@@ -1193,7 +1193,7 @@
 
 .club-section-header a{
 
-    color:#D4AF37;
+    color:#f81a2e;
 
     font-size:13px;
 
@@ -1270,7 +1270,7 @@
 
     background:#1C1C1C;
 
-    color:#D4AF37;
+    color:#f81a2e;
 
     font-size:18px;
 
@@ -1335,7 +1335,7 @@
 
 .club-popular-card.featured{
 
-    border-color:#D4AF37;
+    border-color:#f81a2e;
 }
 
 .club-popular-card.coming-soon{
@@ -1480,7 +1480,7 @@
 
     right:12px;
 
-    background:#D4AF37;
+    background:#f81a2e;
 
     color:#111;
 }
@@ -1652,7 +1652,7 @@
 
     background:#2B2B2B;
 
-    color:#D4AF37;
+    color:#f81a2e;
 
     font-size:10px;
 
@@ -1741,7 +1741,7 @@
 
     border-radius:16px;
 
-    background:#D4AF37;
+    background:#f81a2e;
 
     color:#111;
 
@@ -1750,7 +1750,7 @@
 
 .club-modal-eyebrow{
 
-    color:#D4AF37;
+    color:#f81a2e;
 
     font-size:11px;
 
@@ -1860,7 +1860,7 @@
         linear-gradient(
             180deg,
             #F2D468,
-            #D4AF37
+            #f81a2e
         );
 
     color:#111;
@@ -2077,7 +2077,7 @@
         linear-gradient(
             180deg,
             #F2D468,
-            #D4AF37
+            #f81a2e
         );
 
     color:#111;
@@ -2146,7 +2146,7 @@
 
 ::-webkit-scrollbar-thumb:hover{
 
-    background:#D4AF37;
+    background:#f81a2e;
 }/* ==========================================================
    PART 6
    AUTH PAGE
@@ -2255,7 +2255,7 @@
 
 .auth-topbar-logo strong{
 
-    color:#D4AF37;
+    color:#f81a2e;
 }
 
 .auth-lang{
@@ -2279,7 +2279,7 @@
 
 .auth-lang:hover{
 
-    border-color:#D4AF37;
+    border-color:#f81a2e;
 }
 
 
@@ -2333,7 +2333,7 @@
 
     border-radius:50%;
 
-    background:#FFD54A;
+    background:#ff334b;
 
     opacity:.10;
 
@@ -2395,8 +2395,8 @@
     background:
         linear-gradient(
             180deg,
-            #FFD54A,
-            #D4AF37
+            #ff334b,
+            #f81a2e
         );
 
     color:#111;
@@ -2445,7 +2445,7 @@
 
     margin-bottom:4px;
 
-    color:#FFD54A;
+    color:#ff334b;
 
     font-size:17px;
 
@@ -2620,7 +2620,7 @@
 
     background:#212121;
 
-    border-color:#D4AF37;
+    border-color:#f81a2e;
 
     box-shadow:
         0 0 0 4px rgba(212,175,55,.08);
@@ -2666,7 +2666,7 @@
 
 .auth-eye:hover{
 
-    color:#D4AF37;
+    color:#f81a2e;
 }
 
 
@@ -2699,14 +2699,14 @@
 
     margin-top:2px;
 
-    accent-color:#D4AF37;
+    accent-color:#f81a2e;
 
     cursor:pointer;
 }
 
 .auth-check-row a{
 
-    color:#D4AF37;
+    color:#f81a2e;
 
     text-decoration:none;
 
@@ -2737,7 +2737,7 @@
         linear-gradient(
             180deg,
             #F2D468,
-            #D4AF37
+            #f81a2e
         );
 
     color:#111;
@@ -2819,7 +2819,7 @@
 
 .auth-btn-outline-dark strong{
 
-    color:#D4AF37;
+    color:#f81a2e;
 }
 
 
@@ -2847,7 +2847,7 @@
 
     background:transparent;
 
-    color:#D4AF37;
+    color:#f81a2e;
 
     font-size:14px;
 
@@ -2862,7 +2862,7 @@
 
     background:#1A1A1A;
 
-    border-color:#D4AF37;
+    border-color:#f81a2e;
 }
 
 
@@ -2954,7 +2954,7 @@
 
 .auth-footer-link:hover{
 
-    color:#D4AF37;
+    color:#f81a2e;
 }
 
 .auth-footer-link span:first-child{
@@ -3038,7 +3038,7 @@
 
     border-radius:50%;
 
-    background:#FFD54A;
+    background:#ff334b;
 
     opacity:.10;
 
@@ -3209,7 +3209,7 @@
         linear-gradient(
             180deg,
             #F2D468,
-            #D4AF37
+            #f81a2e
         );
 
     color:#111;
@@ -3300,7 +3300,7 @@
 
 .strength-bars span.active{
 
-    background:#D4AF37;
+    background:#f81a2e;
 }
 
 
@@ -3331,12 +3331,12 @@
 
     margin-top:2px;
 
-    accent-color:#D4AF37;
+    accent-color:#f81a2e;
 }
 
 .premium-check a{
 
-    color:#D4AF37;
+    color:#f81a2e;
 
     text-decoration:none;
 
@@ -3363,7 +3363,7 @@
         linear-gradient(
             180deg,
             #F2D468,
-            #D4AF37
+            #f81a2e
         );
 
     color:#111;
@@ -3409,7 +3409,7 @@
 
     margin-left:5px;
 
-    color:#D4AF37;
+    color:#f81a2e;
 }
 
 .premium-login-btn:hover{
@@ -3469,7 +3469,7 @@
 
     border-radius:16px;
 
-    background:#D4AF37;
+    background:#f81a2e;
 
     color:#111;
 
@@ -3680,7 +3680,7 @@ button:focus-visible,
 a:focus-visible,
 input:focus-visible{
 
-    outline:2px solid #D4AF37;
+    outline:2px solid #f81a2e;
 
     outline-offset:2px;
 }
@@ -3692,7 +3692,7 @@ input:focus-visible{
 
 ::selection{
 
-    background:#D4AF37;
+    background:#f81a2e;
 
     color:#fff;
 }
@@ -3817,7 +3817,7 @@ input:focus-visible{
     width: 52px;
     height: 52px;
     border-radius: 50%;
-    background: #D4AF37;
+    background: #f81a2e;
     color: #111111;
     font-size: 16px;
     font-weight: 900;
@@ -3851,7 +3851,7 @@ input:focus-visible{
     margin: 0 0 18px;
     font-size: 20px;
     font-weight: 800;
-    color: #D4AF37;
+    color: #f81a2e;
     letter-spacing: 0.5px;
 }
 
