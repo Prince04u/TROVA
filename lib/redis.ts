@@ -3,16 +3,24 @@ import Redis from "ioredis";
 const globalForRedis = globalThis as unknown as { redis?: Redis };
 
 function createClient() {
+  let client: Redis;
   if (process.env.REDIS_URL) {
-    return new Redis(process.env.REDIS_URL, { maxRetriesPerRequest: 1, connectTimeout: 1000 });
+    client = new Redis(process.env.REDIS_URL, { maxRetriesPerRequest: 1, connectTimeout: 1000 });
+  } else {
+    client = new Redis({
+      host: process.env.REDIS_HOST || "127.0.0.1",
+      port: Number(process.env.REDIS_PORT) || 6379,
+      password: process.env.REDIS_PASSWORD,
+      maxRetriesPerRequest: 1,
+      connectTimeout: 1000,
+    });
   }
-  return new Redis({
-    host: process.env.REDIS_HOST,
-    port: Number(process.env.REDIS_PORT),
-    password: process.env.REDIS_PASSWORD,
-    maxRetriesPerRequest: 1,
-    connectTimeout: 1000,
+
+  client.on("error", (err) => {
+    console.warn("Redis client connection error (suppressed):", err.message);
   });
+
+  return client;
 }
 
 let activeClient: Redis | null = null;
