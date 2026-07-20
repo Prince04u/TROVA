@@ -7,45 +7,62 @@ import BottomNav from "@/components/home/BottomNav";
 const PRODUCTS = [
   {
     id: 1,
-    name: "【Now】 Series White 18K Gold Pair Ring",
+    name: "【 Now 】 Series White 18K Gold Pair Ring",
     price: 38570.0,
-    image: "💍",
-    color: "#e2e8f0",
+    svg: (
+      <svg viewBox="0 0 100 100" width="80" height="80">
+        <circle cx="42" cy="50" r="22" stroke="#d4af37" strokeWidth="4.5" fill="none" />
+        <circle cx="58" cy="50" r="22" stroke="#e5e5e5" strokeWidth="4.5" fill="none" />
+        <circle cx="42" cy="30" r="3.5" fill="#3b82f6" />
+        <circle cx="58" cy="30" r="3.5" fill="#3b82f6" />
+        <circle cx="50" cy="27" r="2" fill="#3b82f6" />
+      </svg>
+    ),
   },
   {
     id: 2,
     name: "【Cute Pet】 Series Rose 18K Gold Pearl Pendant",
     price: 2899.0,
-    image: "📿",
-    color: "#fed7aa",
+    svg: (
+      <svg viewBox="0 0 100 100" width="80" height="80">
+        <line x1="50" y1="0" x2="50" y2="40" stroke="#d4af37" strokeWidth="2.5" />
+        <path d="M50 40 C40 45, 40 55, 50 60 C60 55, 60 45, 50 40 Z" fill="#e6c46e" stroke="#d4af37" strokeWidth="1.5" />
+        <circle cx="50" cy="65" r="14" fill="#fcfcfc" stroke="#e5e5e5" strokeWidth="2" />
+        <circle cx="50" cy="65" r="3" fill="#fff" opacity="0.8" />
+      </svg>
+    ),
   },
   {
     id: 3,
     name: "18K Gold Diamond Ruby Deer Horn Collar Chain",
     price: 5420.0,
-    image: "🦌",
-    color: "#fecdd3",
+    svg: (
+      <svg viewBox="0 0 100 100" width="80" height="80">
+        <path d="M20 20 Q50 60 80 20" fill="none" stroke="#d4af37" strokeWidth="2" />
+        <path d="M40 50 Q45 60 50 62 Q55 60 60 50" fill="none" stroke="#d4af37" strokeWidth="3" />
+        <path d="M35 38 Q30 30 25 35 Q30 40 42 48" fill="none" stroke="#d4af37" strokeWidth="2.5" />
+        <path d="M65 38 Q70 30 75 35 Q70 40 58 48" fill="none" stroke="#d4af37" strokeWidth="2.5" />
+        <circle cx="50" cy="64" r="5" fill="#f43f5e" />
+      </svg>
+    ),
   },
   {
     id: 4,
-    name: "Enzo Jewelry 14k Gold Seven Colored Gemstone",
+    name: "Enzo Jewelry 14k Gold Seven Colored Gemstone Butterfly Pendant",
     price: 12900.0,
-    image: "🦋",
-    color: "#d9f99d",
-  },
-  {
-    id: 5,
-    name: "Luxury Princess Cut Emerald Ring",
-    price: 18500.0,
-    image: "💚",
-    color: "#a7f3d0",
-  },
-  {
-    id: 6,
-    name: "Classic Gold Hoops Earring Pair",
-    price: 4500.0,
-    image: "🟡",
-    color: "#fef08a",
+    svg: (
+      <svg viewBox="0 0 100 100" width="80" height="80">
+        <line x1="50" y1="0" x2="50" y2="30" stroke="#d4af37" strokeWidth="2" />
+        {/* Left Wing */}
+        <path d="M50 48 C25 30 20 55 50 65" fill="#f43f5e" stroke="#d4af37" strokeWidth="2" />
+        <path d="M50 65 C30 65 35 80 50 72" fill="#3b82f6" stroke="#d4af37" strokeWidth="1.5" />
+        {/* Right Wing */}
+        <path d="M50 48 C75 30 80 55 50 65" fill="#10b981" stroke="#d4af37" strokeWidth="2" />
+        <path d="M50 65 C70 65 65 80 50 72" fill="#eab308" stroke="#d4af37" strokeWidth="1.5" />
+        {/* Center body */}
+        <ellipse cx="50" cy="58" rx="3" ry="12" fill="#6366f1" />
+      </svg>
+    ),
   },
 ];
 
@@ -57,40 +74,28 @@ export default function SearchScreen() {
   );
 
   return (
-    <main className="club-app" style={{ background: "#f5f5f5", minHeight: "100vh", paddingBottom: "80px", color: "#333" }}>
-      {/* Top Search Header */}
+    <main className="club-app" style={{ background: "#f8f8fa", minHeight: "100vh", paddingBottom: "80px", color: "#333", fontFamily: "sans-serif" }}>
+      {/* Search Bar Header */}
       <div
         style={{
+          background: "#ffffff",
+          padding: "16px",
+          borderBottom: "1px solid #eaeaea",
+          boxShadow: "0 2px 5px rgba(0,0,0,0.02)",
           position: "sticky",
           top: 0,
-          background: "#ffffff",
-          padding: "12px 16px",
-          borderBottom: "1px solid #e2e8f0",
           zIndex: 10,
         }}
       >
         <div
           style={{
-            display: "flex",
-            alignItems: "center",
-            background: "#f1f5f9",
-            borderRadius: "8px",
-            padding: "8px 12px",
+            background: "#ffffff",
+            border: "1px solid #cbd5e1",
+            borderRadius: "4px",
+            padding: "10px 14px",
+            boxShadow: "inset 0 1px 2px rgba(0,0,0,0.05)",
           }}
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            style={{ width: "16px", height: "16px", color: "#94a3b8", marginRight: "8px" }}
-          >
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
           <input
             type="text"
             placeholder="Search for goods"
@@ -108,7 +113,7 @@ export default function SearchScreen() {
         </div>
       </div>
 
-      {/* Grid List */}
+      {/* Product Grid */}
       <div
         style={{
           display: "grid",
@@ -122,37 +127,38 @@ export default function SearchScreen() {
             key={p.id}
             style={{
               background: "#ffffff",
-              borderRadius: "8px",
+              borderRadius: "4px",
               overflow: "hidden",
               border: "1px solid #e2e8f0",
               display: "flex",
               flexDirection: "column",
+              boxShadow: "0 2px 4px rgba(0,0,0,0.02)",
             }}
           >
-            {/* Image Box */}
+            {/* White Background Image Frame */}
             <div
               style={{
-                height: "140px",
-                background: p.color,
+                height: "150px",
+                background: "#ffffff",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: "48px",
+                borderBottom: "1px solid #f1f5f9",
               }}
             >
-              {p.image}
+              {p.svg}
             </div>
 
-            {/* Content Box */}
+            {/* Description Frame */}
             <div style={{ padding: "12px", flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
               <div
                 style={{
                   fontSize: "12px",
-                  fontWeight: "600",
-                  color: "#333",
-                  lineHeight: "1.4",
+                  color: "#222",
+                  fontWeight: "500",
+                  lineHeight: "1.5",
                   marginBottom: "8px",
-                  height: "34px",
+                  height: "36px",
                   overflow: "hidden",
                   textOverflow: "ellipsis",
                   display: "-webkit-box",
@@ -162,7 +168,7 @@ export default function SearchScreen() {
               >
                 {p.name}
               </div>
-              <div style={{ fontSize: "14px", fontWeight: "700", color: "#f81a2e" }}>
+              <div style={{ fontSize: "14px", fontWeight: "700", color: "#e08d3c" }}>
                 ₹ {p.price.toFixed(2)}
               </div>
             </div>
@@ -170,13 +176,41 @@ export default function SearchScreen() {
         ))}
       </div>
 
-      {filteredProducts.length === 0 && (
-        <div style={{ textAlign: "center", padding: "40px", color: "#94a3b8" }}>
-          No goods found
+      {/* Floating Slot Machine Button */}
+      <Link
+        href="/wingo/1m"
+        style={{
+          position: "fixed",
+          right: "12px",
+          top: "40%",
+          zIndex: 999,
+          width: "70px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          cursor: "pointer",
+          textDecoration: "none",
+        }}
+      >
+        <div
+          style={{
+            background: "#ffffff",
+            border: "2px solid #f81a2e",
+            borderRadius: "10px",
+            padding: "6px",
+            boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
+            textAlign: "center",
+            fontWeight: "bold",
+            fontSize: "10px",
+            color: "#f81a2e",
+          }}
+        >
+          <span style={{ fontSize: "20px", display: "block" }}>🎰</span>
+          777
+          <div style={{ background: "#f81a2e", color: "#ffffff", borderRadius: "4px", padding: "2px 4px", marginTop: "4px", fontSize: "9px" }}>Start</div>
         </div>
-      )}
+      </Link>
 
-      {/* Navigation */}
       <BottomNav />
     </main>
   );

@@ -314,7 +314,7 @@ export default function AccountScreen() {
   const displayPhone = user?.phone || "916359736842";
 
   return (
-    <main className="account-page" style={{ background: "#f5f5f5", minHeight: "100vh", paddingBottom: "90px", color: "#333", fontFamily: "sans-serif" }}>
+    <main className="account-page" style={{ background: "#f8f8fa", minHeight: "100vh", paddingBottom: "90px", color: "#333", fontFamily: "sans-serif" }}>
       {/* Red Header & Balance Card Section */}
       <section
         style={{
@@ -323,15 +323,13 @@ export default function AccountScreen() {
           padding: "24px 16px 20px 16px",
           display: "flex",
           flexDirection: "column",
-          gap: "20px",
-          borderBottomLeftRadius: "0px",
-          borderBottomRightRadius: "0px",
+          gap: "24px",
         }}
       >
         {/* User profile row */}
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            {/* Circular Avatar */}
+          <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+            {/* Circular Avatar (Light Green) */}
             <div
               style={{
                 width: "48px",
@@ -344,14 +342,13 @@ export default function AccountScreen() {
                 justifyContent: "center",
                 fontWeight: "bold",
                 fontSize: "20px",
-                boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
               }}
             >
               {avatar || "9"}
             </div>
             {/* User Details */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-              <div style={{ fontSize: "14px", fontWeight: "600" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+              <div style={{ fontSize: "14px", fontWeight: "700" }}>
                 User: {displayPhone}
               </div>
               <div style={{ fontSize: "13px", opacity: 0.9 }}>
@@ -360,19 +357,34 @@ export default function AccountScreen() {
             </div>
           </div>
 
-          {/* Notifications Bell */}
-          <Link href="/account/notifications" style={{ color: "#ffffff", position: "relative" }}>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style={{ width: "22px", height: "22px" }}>
+          {/* Notifications Bell Circle Button */}
+          <Link
+            href="/account/notifications"
+            style={{
+              width: "36px",
+              height: "36px",
+              borderRadius: "50%",
+              background: "#ffffff",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "#333",
+              textDecoration: "none",
+              position: "relative",
+              boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+            }}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style={{ width: "18px", height: "18px" }}>
               <path d="M12 22a2.01 2.01 0 0 0 2-2h-4a2 2 0 0 0 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
             </svg>
             {unreadCount > 0 && (
               <span
                 style={{
                   position: "absolute",
-                  top: "-4px",
-                  right: "-4px",
-                  background: "#ffffff",
-                  color: "#f81a2e",
+                  top: "-2px",
+                  right: "-2px",
+                  background: "#f81a2e",
+                  color: "#ffffff",
                   fontSize: "9px",
                   fontWeight: "bold",
                   borderRadius: "50%",
@@ -390,11 +402,11 @@ export default function AccountScreen() {
         </div>
 
         {/* 3-Column Balance Subheader */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", textAlign: "center", paddingTop: "10px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", textAlign: "center", paddingTop: "6px" }}>
           {/* Balance */}
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "6px" }}>
-            <div style={{ fontSize: "15px", fontWeight: "700" }}>₹ {balance.toFixed(2)}</div>
-            <div style={{ fontSize: "11px", opacity: 0.9 }}>Balance</div>
+            <div style={{ fontSize: "16px", fontWeight: "700" }}>₹ {balance.toFixed(2)}</div>
+            <div style={{ fontSize: "12px", opacity: 0.9 }}>Balance</div>
             <Link
               href="/wallet/deposit"
               style={{
@@ -458,18 +470,114 @@ export default function AccountScreen() {
       </section>
 
       {/* Menu List */}
-      <section style={{ background: "#ffffff", margin: "12px 0", borderTop: "1px solid #e2e8f0", borderBottom: "1px solid #e2e8f0" }}>
+      <section style={{ background: "#ffffff", margin: "12px 0 20px 0", borderTop: "1px solid #eaeaea", borderBottom: "1px solid #eaeaea" }}>
         {[
-          { label: "Sign In", icon: "📅", href: "/account/gifts" },
-          { label: "Orders", icon: "📋", href: "/games/history" },
-          { label: "Promotion", icon: "🎁", href: "/referral" },
-          { label: "Red Envelope", icon: "🧧", href: "/account/gifts" },
-          { label: "Luck Draw", icon: "🎡", href: "/promo" },
-          { label: "Wallet", icon: "💼", href: "/wallet" },
-          { label: "Bank Card", icon: "💳", href: "/wallet/withdraw" },
-          { label: "Address", icon: "🏢", href: "/account/profile" },
-          { label: "Account Security", icon: "🛡️", href: "/account/security" },
-          { label: "App Download", icon: "📥", href: "/support" },
+          {
+            label: "Sign In",
+            href: "/account/gifts",
+            svg: (
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#64748b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
+              </svg>
+            )
+          },
+          {
+            label: "Orders",
+            href: "/games/history",
+            svg: (
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#64748b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1" fill="#94a3b8" />
+              </svg>
+            )
+          },
+          {
+            label: "Promotion",
+            href: "/referral",
+            svg: (
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#64748b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="20 12 20 22 4 22 4 12" />
+                <rect x="2" y="7" width="20" height="5" />
+                <line x1="12" y1="22" x2="12" y2="7" />
+                <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" />
+                <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" />
+              </svg>
+            )
+          },
+          {
+            label: "Red Envelope",
+            href: "/account/gifts",
+            customIcon: (
+              <div style={{ width: "22px", height: "22px", borderRadius: "50%", background: "#00b894", display: "flex", alignItems: "center", justifyContent: "center", color: "#ffffff", fontSize: "11px", fontWeight: "bold" }}>
+                ₹
+              </div>
+            )
+          },
+          {
+            label: "Luck Draw",
+            href: "/promo",
+            customIcon: (
+              <div style={{ width: "22px", height: "22px", borderRadius: "50%", background: "#00b894", display: "flex", alignItems: "center", justifyContent: "center", color: "#ffffff", fontSize: "11px", fontWeight: "bold" }}>
+                ₹
+              </div>
+            )
+          },
+          {
+            label: "Wallet",
+            href: "/wallet",
+            svg: (
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#64748b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="4" width="20" height="16" rx="2" ry="2" />
+                <line x1="2" y1="10" x2="22" y2="10" />
+              </svg>
+            )
+          },
+          {
+            label: "Bank Card",
+            href: "/wallet/withdraw",
+            svg: (
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#64748b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+                <line x1="1" y1="10" x2="23" y2="10" />
+              </svg>
+            )
+          },
+          {
+            label: "Address",
+            href: "/account/profile",
+            svg: (
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#64748b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="4" y="2" width="16" height="20" rx="2" ry="2" />
+                <line x1="9" y1="22" x2="9" y2="16" />
+                <line x1="15" y1="22" x2="15" y2="16" />
+                <line x1="9" y1="16" x2="15" y2="16" />
+                <path d="M8 6h2M8 10h2M14 6h2M14 10h2" />
+              </svg>
+            )
+          },
+          {
+            label: "Account Security",
+            href: "/account/security",
+            svg: (
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#64748b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            )
+          },
+          {
+            label: "App Download",
+            href: "/support",
+            svg: (
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#64748b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+            )
+          },
         ].map((item) => (
           <Link
             key={item.label}
@@ -485,14 +593,22 @@ export default function AccountScreen() {
               fontSize: "14px",
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-              <span style={{ fontSize: "18px" }}>{item.icon}</span>
-              <span style={{ fontWeight: "500" }}>{item.label}</span>
+            <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+              <span style={{ display: "flex", alignItems: "center", width: "24px", justifyContent: "center" }}>
+                {item.customIcon ? item.customIcon : item.svg}
+              </span>
+              <span style={{ fontWeight: "500", color: "#333" }}>{item.label}</span>
             </div>
-            <span style={{ color: "#94a3b8", fontSize: "16px" }}>›</span>
+            <span style={{ color: "#94a3b8", display: "flex", alignItems: "center" }}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ width: "12px", height: "12px" }}>
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </span>
           </Link>
         ))}
       </section>
+
+
 
       {/* Floating Slot Machine Button */}
       <Link
