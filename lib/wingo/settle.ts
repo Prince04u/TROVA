@@ -155,6 +155,8 @@ async function settleOneRound(mode: WingoMode, roundNumber: bigint) {
     gotLock = await redis.set(lockKey, "1", "EX", 10, "NX") || "";
   } catch (err) {
     console.error("Redis lock error in Wingo settleOneRound:", err);
+    // Fall back to database unique constraint locking if Redis is unreachable
+    gotLock = "1";
   }
   if (!gotLock) {
     for (let i = 0; i < 15; i++) {
@@ -243,9 +245,20 @@ async function settleOneRound(mode: WingoMode, roundNumber: bigint) {
 
     const { color, size } = getColorAndSize(number);
 
-    const result = await prisma.wingoResult.create({
-      data: { mode, roundNumber, number, color, size, source },
-    });
+    let result;
+    try {
+      result = await prisma.wingoResult.create({
+        data: { mode, roundNumber, number, color, size, source },
+      });
+    } catch (createErr: any) {
+      if (createErr.code === "P2002") {
+        // Another instance just settled it, fetch and return the result row
+        return prisma.wingoResult.findUnique({
+          where: { mode_roundNumber: { mode, roundNumber } },
+        });
+      }
+      throw createErr;
+    }
 
     await Promise.all([
       resolvePendingBets(mode, roundNumber, number),

@@ -483,7 +483,7 @@
 
 
 .wallet-screen .club-bottom-nav .club-nav-item:nth-child(4).active {
-  color: var(--theme-green-light);
+  color: #f81a2e;
 }
 
 .wallet-modal-overlay {

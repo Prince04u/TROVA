@@ -1912,9 +1912,11 @@
 
     justify-content:space-around;
 
-    background:#111111;
+    background:#ffffff;
 
-    border-top:1px solid rgba(255,255,255,.06);
+    border-top:1px solid #e2e8f0;
+
+    box-shadow:0 -4px 12px rgba(0, 0, 0, 0.05);
 
     backdrop-filter:blur(14px);
 
@@ -1935,7 +1937,7 @@
 
     gap:5px;
 
-    color:#8B8B8B;
+    color:#64748b;
 
     text-decoration:none;
 
@@ -1949,7 +1951,7 @@
 .club-nav-item:hover,
 .club-nav-item.active{
 
-    color:#D4AF37;
+    color:#f81a2e;
 }
 
 .club-nav-icon{
@@ -2010,13 +2012,13 @@
 
     border-radius:50%;
 
-    background:#161616;
+    background:#f81a2e;
 
-    border:2px solid rgba(212, 175, 55, 0.4);
+    border:2px solid rgba(248, 26, 46, 0.4);
 
     box-shadow:
-        0 8px 20px rgba(0, 0, 0, 0.5),
-        0 0 15px rgba(212, 175, 55, 0.15);
+        0 8px 20px rgba(248, 26, 46, 0.15),
+        0 0 15px rgba(248, 26, 46, 0.1);
 
     transition:all .25s ease;
 }
@@ -2025,11 +2027,11 @@
 
     transform:translateY(-3px) scale(1.04);
 
-    border-color:rgba(212, 175, 55, 0.85);
+    border-color:rgba(248, 26, 46, 0.85);
 
     box-shadow:
-        0 12px 28px rgba(0, 0, 0, 0.6),
-        0 0 25px rgba(212, 175, 55, 0.35);
+        0 12px 28px rgba(248, 26, 46, 0.25),
+        0 0 25px rgba(248, 26, 46, 0.2);
 }
 
 .club-nav-promo-img{
@@ -2045,7 +2047,7 @@
 
     margin-top:4px;
 
-    color:#D4AF37;
+    color:#f81a2e;
 
     font-size:10px;
 

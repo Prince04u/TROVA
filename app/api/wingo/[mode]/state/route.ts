@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import type { WingoMode } from "@/generated/prisma/client";
 import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/auth/session";
-import { getRoundNumber, getRoundWindow, MODE_DURATIONS_SECONDS } from "@/lib/wingo/rounds";
+import { getRoundNumber, getRoundWindow, MODE_DURATIONS_SECONDS, colorChips } from "@/lib/wingo/rounds";
 import { settleRoundIfDue } from "@/lib/wingo/settle";
 
 const MODE_MAP: Record<string, WingoMode> = {
@@ -24,14 +24,17 @@ const MODE_MAP: Record<string, WingoMode> = {
 const recentResultsCache: Record<string, { data: any[]; expiresAt: number }> = {};
 const CACHE_TTL_MS = 1000; // 1 second cache
 
-async function getCachedRecentResults(mode: WingoMode): Promise<any[]> {
+async function getCachedRecentResults(mode: WingoMode, currentRound: bigint): Promise<any[]> {
   const now = Date.now();
   const cache = recentResultsCache[mode];
   if (cache && cache.expiresAt > now) {
     return cache.data;
   }
+  // Only return current-epoch rounds (16-digit). Legacy rows from the old platform
+  // have 17-digit round numbers that are numerically larger than every live round;
+  // without this filter they sort to the top and hide live results.
   const results = await prisma.wingoResult.findMany({
-    where: { mode },
+    where: { mode, roundNumber: { lt: currentRound } },
     orderBy: { roundNumber: "desc" },
     take: 50,
   });
@@ -62,7 +65,7 @@ export async function GET(_req: NextRequest, { params }: { params: Promise<{ mod
   }
 
   const [recentResultsRaw, user] = await Promise.all([
-    getCachedRecentResults(mode),
+    getCachedRecentResults(mode, roundNumber),
     getCurrentUser(),
   ]);
 
@@ -78,7 +81,15 @@ export async function GET(_req: NextRequest, { params }: { params: Promise<{ mod
   // roundNumber is a BigInt in the DB (values exceed Number.MAX_SAFE_INTEGER);
   // stringify it explicitly here rather than letting JSON serialization fall
   // back to a lossy Number conversion.
-  const recentResults = recentResultsRaw.map((r) => ({ ...r, roundNumber: r.roundNumber.toString() }));
+  const recentResults = recentResultsRaw.map((r) => ({
+    ...r,
+    roundNumber: r.roundNumber.toString(),
+    periodId: r.roundNumber.toString(),
+    number: r.number,
+    resultNumber: r.number,
+    colors: colorChips(r.color).map((c) => c.toLowerCase()),
+    size: r.size.toLowerCase(),
+  }));
   const myBets = myBetsRaw.map((b) => ({ ...b, roundNumber: b.roundNumber.toString() }));
 
   return NextResponse.json({
