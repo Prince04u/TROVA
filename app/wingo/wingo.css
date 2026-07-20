@@ -778,63 +778,44 @@
 }
 
 .wg-history-panel {
-  margin: 0 0.75rem;
-  background: rgba(20, 20, 20, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-top: none;
+  margin: 0;
+  background: #ffffff;
+  border: none;
   border-radius: 0 0 16px 16px;
-  overflow: hidden;
   min-height: 150px;
-  max-height: 240px;
-  overflow-y: auto;
-  backdrop-filter: blur(10px);
-  scrollbar-width: thin;
-  scrollbar-color: rgba(212,175,55,.25) rgba(255,255,255,.03);
-}
-
-.wg-history-panel::-webkit-scrollbar {
-  width: 6px;
-}
-
-.wg-history-panel::-webkit-scrollbar-thumb {
-  background: rgba(212, 175, 55, 0.25);
-  border-radius: 999px;
-}
-
-.wg-history-panel::-webkit-scrollbar-thumb:hover {
-  background: rgba(212, 175, 55, 0.45);
+  max-height: none;
+  overflow-y: visible;
 }
 
 .wg-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
 }
 
 .wg-table th {
-  padding: 0.625rem 0.5rem;
-  text-align: left;
-  color: var(--theme-text-muted);
+  padding: 0.75rem 0.5rem;
+  text-align: center;
+  color: #64748b;
   font-weight: 700;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  position: sticky;
-  top: 0;
-  background: #141414;
+  border-bottom: 1px solid #f1f5f9;
+  position: static;
+  background: #ffffff;
   z-index: 2;
   text-transform: uppercase;
-  font-size: 0.6875rem;
-  letter-spacing: 0.03em;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
 }
 
 .wg-table td {
-  padding: 0.5625rem 0.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-  color: var(--theme-text-secondary);
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #333333;
 }
 
 .wg-period-cell {
-  color: var(--theme-text-dim);
-  font-size: 0.6875rem;
+  color: #333333;
+  font-size: 0.8125rem;
 }
 
 .wg-table-num {
