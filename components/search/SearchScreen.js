@@ -205,7 +205,15 @@ export default function SearchScreen() {
             color: "#f81a2e",
           }}
         >
-          <span style={{ fontSize: "20px", display: "block" }}>🎰</span>
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: "2px" }}>
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: "#f81a2e" }}>
+              <rect x="3" y="2" width="18" height="20" rx="2" ry="2" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="7" x2="21" y2="7" />
+              <line x1="12" y1="2" x2="12" y2="22" />
+              <path d="M21 9h2v4h-2" />
+            </svg>
+          </div>
           777
           <div style={{ background: "#f81a2e", color: "#ffffff", borderRadius: "4px", padding: "2px 4px", marginTop: "4px", fontSize: "9px" }}>Start</div>
         </div>

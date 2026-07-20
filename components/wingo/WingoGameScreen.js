@@ -595,16 +595,33 @@ export default function WingoGameScreen({ initialPeriod = null, initialResults =
     { id: "5m", label: "Emerd" },
   ];
 
+  const getDotStyle = (num) => {
+    let bg = "";
+    if (num === 0) bg = "linear-gradient(135deg, #ef4444 50%, #8b5cf6 50%)";
+    else if (num === 5) bg = "linear-gradient(135deg, #22c55e 50%, #8b5cf6 50%)";
+    else if ([1, 3, 7, 9].includes(num)) bg = "#22c55e";
+    else bg = "#ef4444";
+    return {
+      display: "inline-block",
+      width: "12px",
+      height: "12px",
+      borderRadius: "50%",
+      background: bg,
+    };
+  };
+
   return (
-    <main className="wingo-game" style={{ background: "#f5f5f5", minHeight: "100vh", paddingBottom: "90px", color: "#333" }}>
+    <main className="wingo-game" style={{ background: "#f8f8fa", minHeight: "100vh", paddingBottom: "90px", color: "#333" }}>
       {/* Header bar */}
       <section style={{ background: "#f81a2e", color: "#ffffff", padding: "16px", display: "flex", flexDirection: "column", gap: "14px" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ fontSize: "15px", fontWeight: "700" }}>
             Available balance: ₹ {balance.toFixed(2)}
           </div>
-          <button type="button" onClick={loadData} disabled={refreshing} style={{ background: "none", border: "none", color: "#fff", cursor: "pointer", fontSize: "18px" }}>
-            <span className={refreshing ? "account-refresh-spin" : ""}>↻</span>
+          <button type="button" onClick={loadData} disabled={refreshing} style={{ background: "none", border: "none", color: "#fff", cursor: "pointer", display: "flex", alignItems: "center", outline: "none" }}>
+            <svg className={refreshing ? "account-refresh-spin" : ""} viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ display: "inline-block" }}>
+              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
+            </svg>
           </button>
         </div>
         <div style={{ display: "flex", gap: "10px" }}>
@@ -658,7 +675,14 @@ export default function WingoGameScreen({ initialPeriod = null, initialResults =
       <section style={{ background: "#ffffff", margin: "12px 10px", padding: "12px 16px", borderRadius: "8px", border: "1px solid #e2e8f0", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "#666", fontSize: "12px", marginBottom: "4px" }}>
-            <span>🏆</span> Period
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: "inline-block" }}>
+              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+              <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+              <path d="M4 22h16" />
+              <path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34" />
+              <path d="M12 2a7 7 0 0 1 7 7v1.5a7 7 0 0 1-14 0V9a7 7 0 0 1 7-7z" />
+            </svg>
+            Period
           </div>
           <div style={{ fontSize: "20px", fontWeight: "800", color: "#111" }}>
             {period?.periodId || "—"}
@@ -700,7 +724,7 @@ export default function WingoGameScreen({ initialPeriod = null, initialResults =
           </div>
 
           {/* Numbers grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "10px", marginBottom: "16px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: "10px" }}>
             {NUMBERS.map((num) => {
               let bg = "";
               if (num === 0) bg = "linear-gradient(135deg, #f44336 50%, #9c27b0 50%)";
@@ -731,60 +755,46 @@ export default function WingoGameScreen({ initialPeriod = null, initialResults =
               );
             })}
           </div>
-
-          {/* Random + multipliers */}
-          <div style={{ display: "flex", gap: "10px", alignItems: "center", marginBottom: "16px" }}>
-            <button type="button" disabled={bettingLocked} onClick={handleRandom} style={{ background: "#eaeaea", border: "1px solid #ccc", padding: "8px 12px", borderRadius: "4px", fontSize: "12px", fontWeight: "700", cursor: "pointer" }}>
-              Random
-            </button>
-            <div style={{ display: "flex", gap: "6px", flexGrow: 1, overflowX: "auto", paddingBottom: "2px" }}>
-              {MULTIPLIERS.map((m) => (
-                <button
-                  key={m}
-                  type="button"
-                  disabled={bettingLocked}
-                  onClick={() => setQuickMultiplier(m)}
-                  style={{
-                    background: quickMultiplier === m ? "#f81a2e" : "#f1f5f9",
-                    color: quickMultiplier === m ? "#fff" : "#333",
-                    border: quickMultiplier === m ? "none" : "1px solid #cbd5e1",
-                    borderRadius: "4px",
-                    padding: "6px 10px",
-                    fontSize: "12px",
-                    fontWeight: "600",
-                    cursor: "pointer",
-                  }}
-                >
-                  X{m}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Big / Small Row */}
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <button onClick={() => openBetSheet("big_small", "big")} disabled={bettingLocked} style={{ width: "48%", height: "38px", background: "#ff9800", border: "none", color: "#fff", borderRadius: "4px", fontSize: "13px", fontWeight: "700", cursor: "pointer", boxShadow: "0 2px 6px rgba(255,152,0,0.3)" }}>
-              Big
-            </button>
-            <button onClick={() => openBetSheet("big_small", "small")} disabled={bettingLocked} style={{ width: "48%", height: "38px", background: "#2196f3", border: "none", color: "#fff", borderRadius: "4px", fontSize: "13px", fontWeight: "700", cursor: "pointer", boxShadow: "0 2px 6px rgba(33,150,243,0.3)" }}>
-              Small
-            </button>
-          </div>
         </div>
       </section>
 
-      {/* History tabs */}
-      <div className="wg-history-tabs" style={{ background: "#ffffff", marginTop: "12px", borderTop: "1px solid #e2e8f0" }}>
+      {/* Record Header (Matches Screenshot 2) */}
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "#ffffff", marginTop: "14px", padding: "16px 0 0 0" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", fontWeight: "700", color: "#333" }}>
+          {/* Trophy SVG */}
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: "#888" }}>
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+            <path d="M4 22h16" />
+            <path d="M10 14.66V17c0 .55-.45 1-1 1H4v2h16v-2h-5c-.55 0-1-.45-1-1v-2.34" />
+            <path d="M12 2a7 7 0 0 1 7 7v1.5a7 7 0 0 1-14 0V9a7 7 0 0 1 7-7z" />
+          </svg>
+          {duration === "30s" ? "Parity" : duration === "1m" ? "Sapre" : duration === "3m" ? "Bcone" : "Emerd"} Record
+        </div>
+        <div style={{ width: "100px", height: "2.5px", background: "#00bba6", marginTop: "8px" }} />
+      </div>
+
+      {/* Clean tab selection filters below title */}
+      <div style={{ display: "flex", justifyContent: "center", gap: "20px", background: "#ffffff", padding: "8px 0 12px 0", borderBottom: "1px solid #f1f5f9" }}>
         {[
-          { id: "game", label: "Game history" },
+          { id: "game", label: "Game History" },
           { id: "chart", label: "Chart" },
-          { id: "my", label: "My history" },
+          { id: "my", label: "My History" },
         ].map((tab) => (
           <button
             key={tab.id}
             type="button"
-            className={`wg-history-tab ${historyTab === tab.id ? "active" : ""}`}
             onClick={() => setHistoryTab(tab.id)}
+            style={{
+              background: "none",
+              border: "none",
+              fontSize: "12px",
+              fontWeight: historyTab === tab.id ? "700" : "500",
+              color: historyTab === tab.id ? "#f81a2e" : "#666",
+              cursor: "pointer",
+              outline: "none",
+              padding: "4px 8px",
+            }}
           >
             {tab.label}
           </button>
@@ -792,16 +802,16 @@ export default function WingoGameScreen({ initialPeriod = null, initialResults =
       </div>
 
       {/* History content */}
-      <section className="wg-history-panel">
+      <section className="wg-history-panel" style={{ padding: "0 10px", background: "#ffffff" }}>
         {historyTab === "game" && (
           <>
-            <table className="wg-table">
+            <table className="wg-table" style={{ background: "#ffffff", borderCollapse: "collapse", width: "100%", fontSize: "13px" }}>
               <thead>
-                <tr>
-                  <th>Period</th>
-                  <th>Number</th>
-                  <th>Big/Small</th>
-                  <th>Color</th>
+                <tr style={{ color: "#666", borderBottom: "1px solid #f1f5f9", textAlign: "center" }}>
+                  <th style={{ padding: "10px", fontWeight: "600", textAlign: "center" }}>Period</th>
+                  <th style={{ padding: "10px", fontWeight: "600", textAlign: "center" }}>Price</th>
+                  <th style={{ padding: "10px", fontWeight: "600", textAlign: "center" }}>Number</th>
+                  <th style={{ padding: "10px", fontWeight: "600", textAlign: "center" }}>Result</th>
                 </tr>
               </thead>
               <tbody>
@@ -814,57 +824,66 @@ export default function WingoGameScreen({ initialPeriod = null, initialResults =
                 ) : (
                   displayResults
                     .slice((Math.min(gameHistoryPage, gameHistoryPageCount) - 1) * 10, Math.min(gameHistoryPage, gameHistoryPageCount) * 10)
-                    .map((r) => (
-                      <tr key={r.periodId}>
-                        <td className="wg-period-cell">{r.displayPeriodId?.slice(-8)}</td>
-                        <td>
-                          <span className={`wg-table-num ${colorClass(r.resultNumber)}`}>{r.resultNumber}</span>
-                        </td>
-                        <td>{getSize(r.resultNumber)}</td>
-                        <td>
-                          <div className="wg-color-dots">
-                            {getColorDots(r.resultNumber).map((c) => (
-                              <span key={c} className={`wg-dot ${c}`} />
-                            ))}
-                          </div>
-                        </td>
-                      </tr>
-                    ))
+                    .map((r) => {
+                      const mockPrice = 15000 + (Number(r.displayPeriodId) % 1000);
+                      const num = r.resultNumber;
+                      const numColor = num === 0 ? "#ef4444" : num === 5 ? "#22c55e" : [1, 3, 7, 9].includes(num) ? "#22c55e" : "#ef4444";
+
+                      return (
+                        <tr key={r.periodId} style={{ textAlign: "center", borderBottom: "1px solid #f8fafc" }}>
+                          <td style={{ padding: "12px 10px", color: "#333", fontWeight: "500" }}>{r.displayPeriodId}</td>
+                          <td style={{ padding: "12px 10px", color: "#666" }}>{mockPrice}</td>
+                          <td style={{ padding: "12px 10px" }}>
+                            {num === 0 ? (
+                              <span style={{ fontWeight: "700", background: "linear-gradient(135deg, #ef4444 50%, #8b5cf6 50%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                                0
+                              </span>
+                            ) : num === 5 ? (
+                              <span style={{ fontWeight: "700", background: "linear-gradient(135deg, #22c55e 50%, #8b5cf6 50%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+                                5
+                              </span>
+                            ) : (
+                              <span style={{ fontWeight: "700", color: numColor }}>{num}</span>
+                            )}
+                          </td>
+                          <td style={{ padding: "12px 10px" }}>
+                            <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                              <span style={getDotStyle(num)} />
+                            </div>
+                          </td>
+                        </tr>
+                      );
+                    })
                 )}
               </tbody>
             </table>
 
             {/* Pagination Controls — page count tracks actual result count */}
-            <div className="wg-pagination">
+            <div className="wg-pagination" style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "8px", padding: "16px 0" }}>
               <button
                 type="button"
                 onClick={() => setGameHistoryPage((prev) => Math.max(1, prev - 1))}
                 disabled={gameHistoryPage === 1}
-                className="wg-page-btn flex items-center justify-center"
+                className="wg-page-btn"
+                style={{ background: "#eaeaea", border: "none", padding: "6px 12px", borderRadius: "4px", cursor: "pointer", color: "#333" }}
               >
-                <ArrowLeft size={16} />
+                Prev
               </button>
-              {Array.from({ length: gameHistoryPageCount }, (_, i) => i + 1).map((p) => (
-                <button
-                  key={p}
-                  type="button"
-                  onClick={() => setGameHistoryPage(p)}
-                  className={`wg-page-btn ${gameHistoryPage === p ? "active" : ""}`}
-                >
-                  {p}
-                </button>
-              ))}
+              <span style={{ fontSize: "13px", color: "#666" }}>Page {gameHistoryPage} of {gameHistoryPageCount}</span>
               <button
                 type="button"
                 onClick={() => setGameHistoryPage((prev) => Math.min(gameHistoryPageCount, prev + 1))}
                 disabled={gameHistoryPage === gameHistoryPageCount}
-                className="wg-page-btn flex items-center justify-center"
+                className="wg-page-btn"
+                style={{ background: "#eaeaea", border: "none", padding: "6px 12px", borderRadius: "4px", cursor: "pointer", color: "#333" }}
               >
-                <ArrowRight size={16} />
+                Next
               </button>
             </div>
           </>
         )}
+
+
 
         {historyTab === "chart" && (
           <div style={{ overflowX: "auto" }}>
