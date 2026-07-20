@@ -281,7 +281,7 @@ export default function WingoGameScreen({ initialPeriod = null, initialResults =
           // resultNumber/resultColors/resultSize once settled. Matching against
           // the `results` array raced the poll and often left the Result row
           // blank because the just-settled round wasn't in the array yet.
-          const matchedResult = (latestResults || results).find(
+          const matchedResult = (latestResults || []).find(
             (r) => String(r.periodId) === String(bet.periodId)
           );
           const resultNumber =
@@ -316,7 +316,7 @@ export default function WingoGameScreen({ initialPeriod = null, initialResults =
       setMyBets(combinedBets);
       localStorage.setItem(`wingo_mybets_${duration}`, JSON.stringify(combinedBets));
     } catch {}
-  }, [duration, syncPeriod, results]);
+  }, [duration, syncPeriod]);
 
   // Popup auto-close is handled inside the shared OutcomePopup component
 
