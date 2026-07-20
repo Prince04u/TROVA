@@ -14,8 +14,15 @@ const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
 import { Pool } from "pg";
 
 function createClient() {
+  const dbUrl = process.env.DATABASE_URL;
+  if (!dbUrl) {
+    throw new Error(
+      "DATABASE_URL is not defined in your environment variables. " +
+      "If you are running on Vercel, please add DATABASE_URL in your project settings."
+    );
+  }
   const pool = new Pool({ 
-    connectionString: process.env.DATABASE_URL,
+    connectionString: dbUrl,
     max: 1, // Limit each serverless function to exactly 1 connection to prevent EMAXCONN pool exhaustion
     idleTimeoutMillis: 10000, // Close idle connections after 10 seconds to release them quickly back to the database pool
   });
