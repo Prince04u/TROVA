@@ -673,7 +673,7 @@ export default function WingoGameScreen({ initialPeriod = null, initialResults =
       )}
 
       {/* Ticket / Countdown Card */}
-      <section style={{ background: "#ffffff", margin: "12px 10px", padding: "12px 16px", borderRadius: "8px", border: "1px solid #e2e8f0", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <section style={{ background: "#ffffff", padding: "14px 16px", borderBottom: "1px solid #f1f5f9", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "#666", fontSize: "12px", marginBottom: "4px" }}>
             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: "inline-block" }}>
@@ -702,7 +702,7 @@ export default function WingoGameScreen({ initialPeriod = null, initialResults =
       </section>
 
       {/* Bet zone */}
-      <section style={{ position: "relative", padding: "0 10px" }}>
+      <section style={{ position: "relative" }}>
         {showCountdownOverlay && (
           <div className="wg-countdown-overlay" aria-live="polite" aria-label={`${remainingSeconds} seconds remaining`} style={{ zIndex: 10 }}>
             <div className="wg-countdown-digit">{countdownDigits[0]}</div>
@@ -710,7 +710,7 @@ export default function WingoGameScreen({ initialPeriod = null, initialResults =
           </div>
         )}
 
-        <div style={{ background: "#ffffff", padding: "16px", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
+        <div style={{ background: "#ffffff", padding: "16px", borderBottom: "1px solid #f1f5f9" }}>
           {/* Color buttons */}
           <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "16px" }}>
             <button onClick={() => openBetSheet("color", "green")} disabled={bettingLocked} style={{ width: "30%", height: "40px", background: "#4caf50", border: "none", color: "#fff", borderRadius: "4px", fontSize: "14px", fontWeight: "700", cursor: "pointer", boxShadow: "0 2px 6px rgba(76,175,80,0.3)" }}>
@@ -760,7 +760,7 @@ export default function WingoGameScreen({ initialPeriod = null, initialResults =
       </section>
 
       {/* Record Header (Matches Screenshot 2) */}
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "#ffffff", marginTop: "14px", padding: "16px 0 0 0" }}>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: "#ffffff", padding: "16px 0 0 0" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "14px", fontWeight: "700", color: "#333" }}>
           {/* Trophy SVG */}
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: "#888" }}>
@@ -803,7 +803,7 @@ export default function WingoGameScreen({ initialPeriod = null, initialResults =
       </div>
 
       {/* History content */}
-      <section className="wg-history-panel" style={{ padding: "0 10px", background: "#ffffff" }}>
+      <section className="wg-history-panel" style={{ background: "#ffffff" }}>
         {historyTab === "game" && (
           <>
             <table className="wg-table" style={{ background: "#ffffff", borderCollapse: "collapse", width: "100%", fontSize: "13px" }}>
