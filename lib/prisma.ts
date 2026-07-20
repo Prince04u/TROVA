@@ -16,13 +16,13 @@ import { Pool } from "pg";
 function createClient() {
   const dbUrl = process.env.DATABASE_URL;
   if (!dbUrl) {
-    throw new Error(
-      "DATABASE_URL is not defined in your environment variables. " +
-      "If you are running on Vercel, please add DATABASE_URL in your project settings."
+    console.warn(
+      "WARNING: DATABASE_URL is not defined in environment variables. " +
+      "Falling back to dummy connection string for static compilation."
     );
   }
   const pool = new Pool({ 
-    connectionString: dbUrl,
+    connectionString: dbUrl || "postgresql://dummy:dummy@localhost:5432/dummy",
     max: 1, // Limit each serverless function to exactly 1 connection to prevent EMAXCONN pool exhaustion
     idleTimeoutMillis: 10000, // Close idle connections after 10 seconds to release them quickly back to the database pool
   });
