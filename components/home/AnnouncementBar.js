@@ -7,7 +7,7 @@ import { BRAND_NAME } from "@/lib/brand";
 import AnnouncementsModal from "./AnnouncementsModal";
 
 const DEFAULT_MARQUEE = {
-  text: "Welcome To Luckynova! Please Use The Official Luckynova Website Only And Contact Support For Any Account Assistant.",
+  text: "Welcome To TROVA! Please Use The Official TROVA Website Only And Contact Support For Any Account Assistant.",
   link: "/wallet",
   linkLabel: "Detail",
 };

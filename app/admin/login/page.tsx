@@ -13,9 +13,9 @@ export default async function AdminLoginPage() {
     <main className="flex-1 flex flex-col items-center justify-center px-6 py-16">
       <div className="mb-8 text-center">
         <div className="mx-auto mb-4 h-12 w-12 rounded-xl bg-gold-gradient flex items-center justify-center text-lg font-bold text-white">
-          L
+          T
         </div>
-        <h1 className="text-2xl font-semibold">Lucky Nova Admin</h1>
+        <h1 className="text-2xl font-semibold">TROVA Admin</h1>
         <p className="text-muted text-sm mt-1">Staff access only</p>
       </div>
       <AdminLoginForm />

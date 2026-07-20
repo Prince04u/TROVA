@@ -26,7 +26,7 @@ export default function PromoBanner() {
   }, []);
 
   const activeSlides = slides.length > 0 ? slides : [
-    { id: "slide-1", title: "Join Lucky Nova", image: "/design/banners/wingo-payout.png", link: "/wingo/30s" },
+    { id: "slide-1", title: "Join TROVA", image: "/design/banners/wingo-payout.png", link: "/wingo/30s" },
     { id: "slide-2", title: "First Deposit Bonus", image: "/design/banners/first-deposit-bonus.png", link: "/wallet/deposit" },
     { id: "slide-3", title: "Login Reward Tier", image: "/design/banners/login-bonus.png", link: "/account/vip" }
   ];

@@ -503,13 +503,13 @@ function DepositPayContent() {
                 const url = canvas.toDataURL("image/png");
                 const a = document.createElement("a");
                 a.href = url;
-                a.download = `luckynova_deposit_qr_${amountParam}.png`;
+                a.download = `trova_deposit_qr_${amountParam}.png`;
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
               }
             }}
-            style={{ width: "100%", padding: "0.75rem", borderRadius: "10px", background: "linear-gradient(180deg, #FFE9A8 0%, #FFD54A 45%, #C69A2B 100%)", color: "#2c1f05", border: "none", fontSize: "0.875rem", fontWeight: "700", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.375rem", boxShadow: "0 4px 12px rgba(212, 175, 55, 0.15)", marginBottom: "1.25rem" }}
+            style={{ width: "100%", padding: "0.75rem", borderRadius: "10px", background: "#f81a2e", color: "#ffffff", border: "none", fontSize: "0.875rem", fontWeight: "700", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: "0.375rem", boxShadow: "0 4px 12px rgba(248, 26, 46, 0.15)", marginBottom: "1.25rem" }}
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />

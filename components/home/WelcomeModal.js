@@ -1,7 +1,5 @@
 "use client";
 
-
-
 export default function WelcomeModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
@@ -10,54 +8,57 @@ export default function WelcomeModal({ isOpen, onClose }) {
       <div className="welcome-modal-card" onClick={(e) => e.stopPropagation()}>
         {/* Header Section */}
         <div style={{ textAlign: "center", paddingTop: "2rem", paddingBottom: "1rem", position: "relative" }}>
-          <div style={{ fontSize: "10px", color: "#a1a1aa", letterSpacing: "4px", fontWeight: "700", marginBottom: "4px" }}>WELCOME TO</div>
-          <div style={{ fontSize: "28px", fontWeight: "900", color: "#ffffff", letterSpacing: "1px" }}>
-            LUCKY<span style={{ color: "#d4af37" }}>NOVA</span>
+          <div style={{ fontSize: "10px", color: "#64748b", letterSpacing: "4px", fontWeight: "700", marginBottom: "4px" }}>WELCOME TO</div>
+          <div style={{ fontSize: "28px", fontWeight: "950", color: "#f81a2e", letterSpacing: "1px" }}>
+            TROVA
           </div>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "8px", marginTop: "8px" }}>
-            <div style={{ height: "1px", width: "40px", background: "linear-gradient(90deg, transparent, #d4af37)" }}></div>
-            <span style={{ color: "#d4af37", fontSize: "10px" }}>✦</span>
-            <div style={{ height: "1px", width: "40px", background: "linear-gradient(270deg, transparent, #d4af37)" }}></div>
+            <div style={{ height: "1.5px", width: "40px", background: "linear-gradient(90deg, transparent, #f81a2e)" }}></div>
+            <span style={{ color: "#f81a2e", fontSize: "10px" }}>✦</span>
+            <div style={{ height: "1.5px", width: "40px", background: "linear-gradient(270deg, transparent, #f81a2e)" }}></div>
           </div>
         </div>
 
         {/* Modal Body */}
-        <div style={{ padding: "0 1.5rem 1.5rem", color: "#d1d5db", fontSize: "13px", lineHeight: "1.6" }}>
-          <p style={{ color: "#a1a1aa", marginBottom: "1.5rem", textAlign: "center" }}>
+        <div style={{ padding: "0 1.5rem 1.5rem", color: "#333333", fontSize: "13px", lineHeight: "1.6" }}>
+          <p style={{ color: "#64748b", marginBottom: "1.5rem", textAlign: "center" }}>
             A secure and rewarding gaming experience starts here.<br />
-            Please make sure you are accessing the official <span style={{ color: "#d4af37", fontWeight: "600" }}>LuckyNova</span> website only. Beware of fake platforms, imitation websites, and unauthorized agents claiming to represent <span style={{ color: "#d4af37", fontWeight: "600" }}>LuckyNova</span>.
+            Please make sure you are accessing the official <span style={{ color: "#f81a2e", fontWeight: "700" }}>TROVA</span> website only. Beware of fake platforms, imitation websites, and unauthorized agents claiming to represent <span style={{ color: "#f81a2e", fontWeight: "700" }}>TROVA</span>.
           </p>
 
           {/* Safety Section */}
-          <div style={{ border: "1px solid rgba(212, 175, 55, 0.4)", borderRadius: "14px", padding: "16px", background: "rgba(0, 0, 0, 0.2)", marginBottom: "1.5rem" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#d4af37", fontWeight: "700", fontSize: "12px", marginBottom: "12px" }}>
-              <span>🛡️</span>
+          <div style={{ border: "1px solid #fed7aa", borderRadius: "14px", padding: "16px", background: "#fff7ed", marginBottom: "1.5rem" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#f81a2e", fontWeight: "700", fontSize: "12px", marginBottom: "12px" }}>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: "inline-block" }}>
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
               <span>FOR YOUR SAFETY:</span>
             </div>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "10px", textAlign: "left" }}>
-              <li style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "12px", color: "#d1d5db" }}>
-                <span style={{ color: "#d4af37" }}>✓</span> Always verify our official website link
+              <li style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "12px", color: "#333333" }}>
+                <span style={{ color: "#22c55e", fontWeight: "bold" }}>✓</span> Always verify our official website link
               </li>
-              <li style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "12px", color: "#d1d5db" }}>
-                <span style={{ color: "#d4af37" }}>✓</span> Never share your login details or OTP with anyone
+              <li style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "12px", color: "#333333" }}>
+                <span style={{ color: "#22c55e", fontWeight: "bold" }}>✓</span> Never share your login details or OTP with anyone
               </li>
-              <li style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "12px", color: "#d1d5db" }}>
-                <span style={{ color: "#d4af37" }}>✓</span> Contact official support for any assistance
+              <li style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "12px", color: "#333333" }}>
+                <span style={{ color: "#22c55e", fontWeight: "bold" }}>✓</span> Contact official support for any assistance
               </li>
-              <li style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "12px", color: "#d1d5db" }}>
-                <span style={{ color: "#d4af37" }}>✓</span> Play responsibly and stay secure
+              <li style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "12px", color: "#333333" }}>
+                <span style={{ color: "#22c55e", fontWeight: "bold" }}>✓</span> Play responsibly and stay secure
               </li>
             </ul>
           </div>
 
           <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
-            <p style={{ color: "#c5a85c", fontWeight: "600", fontSize: "12px", marginBottom: "4px" }}>Thank you for choosing LuckyNova.</p>
-            <p style={{ color: "#a1a1aa", fontSize: "12px" }}>We wish you a safe and enjoyable experience!</p>
+            <p style={{ color: "#f81a2e", fontWeight: "600", fontSize: "12px", marginBottom: "4px" }}>Thank you for choosing TROVA.</p>
+            <p style={{ color: "#64748b", fontSize: "12px" }}>We wish you a safe and enjoyable experience!</p>
           </div>
 
           {/* Official Link Button */}
           <a 
-            href="https://www.luckynova11.site" 
+            href="https://www.trova.site" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="link-btn-glow"
@@ -66,11 +67,11 @@ export default function WelcomeModal({ isOpen, onClose }) {
               alignItems: "center", 
               justifyContent: "center", 
               gap: "10px", 
-              background: "#0c0d0e", 
-              border: "1px solid rgba(212, 175, 55, 0.4)", 
+              background: "#f8fafc", 
+              border: "1px solid #e2e8f0", 
               borderRadius: "10px", 
               padding: "10px", 
-              color: "#ffffff", 
+              color: "#333333", 
               textDecoration: "none",
               fontWeight: "700",
               fontSize: "12px",
@@ -78,8 +79,12 @@ export default function WelcomeModal({ isOpen, onClose }) {
               transition: "border-color 0.2s"
             }}
           >
-            <span>🌐</span>
-            <span>Official URL: <span style={{ color: "#d4af37", marginLeft: "4px" }}>&gt; CLICK HERE &lt;</span></span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: "inline-block" }}>
+              <circle cx="12" cy="12" r="10" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>
+            <span>Official URL: <span style={{ color: "#f81a2e", marginLeft: "4px" }}>&gt; CLICK HERE &lt;</span></span>
           </a>
 
           {/* Confirm Button */}
@@ -88,8 +93,8 @@ export default function WelcomeModal({ isOpen, onClose }) {
             onClick={onClose}
             style={{ 
               width: "100%", 
-              background: "linear-gradient(135deg, #e5c058, #b6922e)", 
-              color: "#000000", 
+              background: "#f81a2e", 
+              color: "#ffffff", 
               border: "none", 
               padding: "12px", 
               borderRadius: "12px", 
@@ -97,7 +102,7 @@ export default function WelcomeModal({ isOpen, onClose }) {
               fontWeight: "800", 
               letterSpacing: "1px",
               cursor: "pointer", 
-              boxShadow: "0 4px 12px rgba(212, 175, 55, 0.2)"
+              boxShadow: "0 4px 12px rgba(248, 26, 46, 0.25)"
             }}
           >
             CONFIRM
@@ -112,7 +117,7 @@ export default function WelcomeModal({ isOpen, onClose }) {
           left: 0;
           width: 100%;
           height: 100%;
-          background: rgba(0, 0, 0, 0.85);
+          background: rgba(0, 0, 0, 0.55);
           backdrop-filter: blur(6px);
           display: flex;
           align-items: center;
@@ -125,22 +130,19 @@ export default function WelcomeModal({ isOpen, onClose }) {
         .welcome-modal-card {
           width: 100%;
           max-width: 400px;
-          background: #111215;
+          background: #ffffff;
           border-radius: 20px;
           overflow: hidden;
-          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
-          border: 2px solid #aa841c;
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+          border: 1px solid #cbd5e1;
           animation: scale-up 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-          background-image: 
-            radial-gradient(circle at top left, rgba(212,175,55,0.08) 0%, transparent 40%),
-            radial-gradient(circle at top right, rgba(212,175,55,0.08) 0%, transparent 40%);
         }
         @keyframes scale-up {
           from { transform: scale(0.9); opacity: 0; }
           to { transform: scale(1); opacity: 1; }
         }
         .link-btn-glow:hover {
-          border-color: #e5c058 !important;
+          border-color: #f81a2e !important;
         }
       `}</style>
     </div>
