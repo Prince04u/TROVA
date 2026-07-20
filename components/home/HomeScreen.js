@@ -78,67 +78,11 @@ export default function HomeScreen() {
               Quality Guarantee
             </div>
             <div style={{ fontSize: "11px", color: "#999", marginTop: "8px", lineHeight: "1.4" }}>
-              Explore our exquisite collection of premium gold jewelry & color prediction games.
+              Explore our exquisite collection of premium gold jewelry.
             </div>
-            <Link
-              href="/wingo/1m"
-              style={{
-                display: "inline-block",
-                background: "#f81a2e",
-                color: "#ffffff",
-                fontSize: "11px",
-                fontWeight: "700",
-                padding: "8px 16px",
-                borderRadius: "20px",
-                textDecoration: "none",
-                marginTop: "14px",
-                boxShadow: "0 2px 6px rgba(248, 26, 46, 0.2)",
-              }}
-            >
-              Play Win Go
-            </Link>
           </div>
           <div style={{ fontSize: "64px", zIndex: 1, opacity: 0.95, marginLeft: "12px" }}>
             ✨
-          </div>
-        </div>
-      </div>
-
-      {/* VIP Gaming Lobby */}
-      <div style={{ padding: "0 16px" }}>
-        <div style={{ padding: "16px", background: "#ffffff", borderRadius: "12px", border: "1px solid #e2e8f0", boxShadow: "0 2px 8px rgba(0,0,0,0.02)" }}>
-          <h3 style={{ fontSize: "14px", fontWeight: "800", color: "#333", marginBottom: "12px", borderLeft: "3px solid #f81a2e", paddingLeft: "8px" }}>
-            VIP ENTERTAINMENT LOBBY
-          </h3>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
-            <Link href="/wingo/1m" style={{ display: "flex", alignItems: "center", gap: "8px", background: "#fff5f5", padding: "10px", borderRadius: "8px", textDecoration: "none", color: "#333", border: "1px solid #ffe3e3" }}>
-              <span style={{ fontSize: "20px" }}>🏆</span>
-              <div>
-                <div style={{ fontSize: "13px", fontWeight: "700" }}>Win Go</div>
-                <div style={{ fontSize: "10px", color: "#f81a2e" }}>Color Prediction</div>
-              </div>
-            </Link>
-            <Link href="/mines" style={{ display: "flex", alignItems: "center", gap: "8px", background: "#f0fdf4", padding: "10px", borderRadius: "8px", textDecoration: "none", color: "#333", border: "1px solid #dcfce7" }}>
-              <span style={{ fontSize: "20px" }}>💣</span>
-              <div>
-                <div style={{ fontSize: "13px", fontWeight: "700" }}>Mines</div>
-                <div style={{ fontSize: "10px", color: "#16a34a" }}>Mine Sweeper</div>
-              </div>
-            </Link>
-            <Link href="/limbo" style={{ display: "flex", alignItems: "center", gap: "8px", background: "#eff6ff", padding: "10px", borderRadius: "8px", textDecoration: "none", color: "#333", border: "1px solid #dbeafe" }}>
-              <span style={{ fontSize: "20px" }}>🚀</span>
-              <div>
-                <div style={{ fontSize: "13px", fontWeight: "700" }}>Limbo</div>
-                <div style={{ fontSize: "10px", color: "#2563eb" }}>Multiplier Game</div>
-              </div>
-            </Link>
-            <Link href="/dice" style={{ display: "flex", alignItems: "center", gap: "8px", background: "#fffbeb", padding: "10px", borderRadius: "8px", textDecoration: "none", color: "#333", border: "1px solid #fef3c7" }}>
-              <span style={{ fontSize: "20px" }}>🎲</span>
-              <div>
-                <div style={{ fontSize: "13px", fontWeight: "700" }}>Dice</div>
-                <div style={{ fontSize: "10px", color: "#d97706" }}>Roll Dice</div>
-              </div>
-            </Link>
           </div>
         </div>
       </div>
